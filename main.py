@@ -13,18 +13,17 @@ def no_space(text):
     text2 = text.text.strip()
     return text2
 
-movie_code = 10010
-movie_page = 1
+movie_code = 11128
+movie_page = 99999
 
 while True:
     while True:
         url = f"https://movie.naver.com/movie/bi/mi/pointWriteFormList.naver?code={movie_code}&page={movie_page}"
 
-        html = urlopen(url).read()
-        soup = BeautifulSoup(html, 'html.parser')
-        movie_page = soup.select("input#page")[0]['value']
-
         try:
+            html = urlopen(url).read()
+            soup = BeautifulSoup(html, 'html.parser')
+            movie_page = soup.select("input#page")[0]['value']
             score_result = soup.find(class_='score_result')
             li = score_result.find_all('li')
         except:
