@@ -15,23 +15,23 @@ html = urlopen(url).read()
 
 soup = BeautifulSoup(html, 'html.parser')
 
-star_score = soup.find(class_='star_score')
-score_reple = soup.find(class_='score_reple')
-btn_area = soup.find_all(class_='btn_area')
+score_result = soup.find(class_='score_result')
+li = score_result.find_all('li')
 
-review_score = no_space(star_score.em)
-review_contents = no_space(score_reple.span)
-usr_id = "test"
-write_date = "test"
-up_count = "test"
-down_count = "test"
+for i in range(len(li)):
+    usr_id = score_result.li.find_all_next('dt')
+    review_score = score_result.find_all(class_='star_score')
+    review_contents = score_result.li.find_all_next('p')
+    write_date = score_result.find_all(class_='score_reple') #ㄴㄴ
+    up_count = score_result.li.a
+    down_count = score_result.li.a
 
-print("아이디 :", usr_id)
-print("평점 :", review_score)
-print("리뷰 내용 :", review_contents)
-print("작성 날짜 :", write_date)
-print("공감 숫자 :", up_count)
-print("비공감 숫자 :", down_count)
-print("======================")
-
+    print("영화 :", movie_code)
+    print("아이디 :", usr_id[i].span.text)
+    print("평점 :", review_score[i].em.text)
+    print("리뷰 내용 :", review_contents[i].span.text.strip())
+    print("작성 날짜 :", write_date[i].em.next_sibling.next_sibling.text)
+    print("공감 숫자 :", up_count.find_all_next("strong")[2*i].text)
+    print("비공감 숫자 :", down_count.find_all_next("strong")[2*i+1].text)
+    print("======================")
 
