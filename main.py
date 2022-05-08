@@ -1,7 +1,7 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-url = "https://movie.naver.com/movie/bi/mi/pointWriteFormList.naver?code=10001&page=999999](https://movie.naver.com/movie/bi/mi/pointWriteFormList.naver?code=10001&page=999999)"
+url = "https://movie.naver.com/movie/bi/mi/pointWriteFormList.naver?code=10001&page=999999"
 
 html = urlopen(url).read()
 
