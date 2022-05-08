@@ -1,6 +1,10 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import cx_Oracle
+import os
+
+LOCATION = r"/Users/choejaeho/Desktop/oracle" #로컬.
+os.environ["PATH"] = LOCATION + ";" + os.environ["PATH"] #환경변수 등록
 
 OracleConnect = cx_Oracle.connect("scott/tiger@localhost")
 OracleCursor = OracleConnect.cursor()
