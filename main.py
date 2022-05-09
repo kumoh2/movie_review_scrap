@@ -13,7 +13,7 @@ def no_space(text):
     text2 = text.text.strip()
     return text2
 
-movie_code = 11128
+movie_code = 27896
 movie_page = 99999
 
 while True:
