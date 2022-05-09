@@ -42,6 +42,12 @@ while True:
 
             review_contents_temp = score_result.li.find_all_next('p')
             review_contents = review_contents_temp[i].span.text.strip()
+
+            if review_contents == '관람객' or review_contents == '스포일러가 포함된 감상평입니다. 감상평 보기':
+                review_contents = review_contents_temp[i].span.next_sibling.next_sibling.text
+                if review_contents == '관람객' or review_contents == '스포일러가 포함된 감상평입니다. 감상평 보기':
+                    review_contents = review_contents_temp[i].span.next_sibling.next_sibling.text
+
             review_contents = review_contents.replace("'", "")
 
             write_date_temp = score_result.find_all(class_='score_reple')
