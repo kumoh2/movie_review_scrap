@@ -9,7 +9,7 @@ os.environ["PATH"] = LOCATION + ";" + os.environ["PATH"]  # 환경변수 등록
 OracleConnect = cx_Oracle.connect("scott/tiger@localhost")
 OracleCursor = OracleConnect.cursor()
 
-movie_code = 10001
+movie_code = 74566
 movie_page = 99999
 
 while True:
@@ -35,7 +35,7 @@ while True:
         for i in range(len(li)):
             # usr_id_temp = score_result.li.find_all_next('dt')
             # usr_id = usr_id_temp[i].span.text
-            usr_id = score_reple[i].em.text.strip()
+            usr_id = score_reple[i].dt.span.text.strip()
 
             review_score = star_score[i].em.text
 
